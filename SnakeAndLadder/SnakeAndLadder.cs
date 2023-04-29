@@ -40,6 +40,9 @@ namespace SnakeAndLadder
                 }
                 Console.WriteLine("You are now at position : " + position);
             }
+            Console.WriteLine("Congratulations! You reached the finish line!");
+            Console.WriteLine("Game over!");
+            Console.ReadKey();
 
         }
     }
