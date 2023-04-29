@@ -36,7 +36,7 @@ namespace SnakeAndLadder
                         }
                         break;
                 }
-            Console.WriteLine("You are now at position " + position);
+            Console.WriteLine("You are now at position : " + position);
 
         }
     }
