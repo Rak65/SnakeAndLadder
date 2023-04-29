@@ -11,7 +11,7 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             Console.WriteLine("WelCome To Snake & Ladder Simulator");
-            SnakeAndLadder.CountDiceRoll();
+            SnakeAndLadder.GameWithTwoPlayer();
             Console .ReadKey();
         }
     }
