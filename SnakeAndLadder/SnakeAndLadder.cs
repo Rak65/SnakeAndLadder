@@ -12,12 +12,13 @@ namespace SnakeAndLadder
         public const int CaseOfLadder = 1;
         public const int CaseOfSnake = 2;
         public const int MaxPosition = 100;
-        public static void ExactPosition100()
+        public static void CountDiceRoll()
         {
             Console.WriteLine("Start the Snake and Ladder Game");
             Console.WriteLine("Single Player at Start Position 0");
             Console.WriteLine(" ");
             int position = 0;
+            int step = 0;
 
 
             while (position != MaxPosition)
@@ -45,7 +46,7 @@ namespace SnakeAndLadder
                     case CaseOfLadder:
                         {
                             Console.WriteLine("option LADDER selected " + (RollDice + position));
-                            Console.WriteLine("player move ahead" + RollDice);
+                            Console.WriteLine("player move ahead : " + RollDice);
                             position = RollDice + position;
                             break;
                         }
@@ -53,7 +54,7 @@ namespace SnakeAndLadder
                     case CaseOfSnake:
                         {
                             Console.WriteLine("option SNAKE selected " + (RollDice + position));
-                            Console.WriteLine("Player moves behind by: " + RollDice);
+                            Console.WriteLine("Player moves behind by : " + RollDice);
                             position = position - RollDice;
                             break;
                         }
@@ -69,11 +70,16 @@ namespace SnakeAndLadder
                     position = position - RollDice;
                     Console.WriteLine("Your chance is skip stay on same position:" + position);
                 }
+
+                step++;
+                Console.WriteLine("Player1 roll the dice till now " + step);
                 Console.WriteLine("current position of the player is:" + position);
                 Console.WriteLine(" ");
 
             }
-            Console.WriteLine("!!!!*****!!!!!Player1 reach the winning position!!!!*****!!!!!");
+
+            Console.WriteLine("!!!!*****!!!!!Player1 Reach The Winning Position!!!!*****!!!!!");
+            Console.WriteLine("Total number of time player1 roll the dice is :" + step);
         }
     }
         
