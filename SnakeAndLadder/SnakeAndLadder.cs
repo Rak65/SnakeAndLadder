@@ -8,10 +8,12 @@ namespace SnakeAndLadder
 {
     public class SnakeAndLadder
     {
-        public static void ChecksNoplayLadderSnake()
+        public static void WinningPosition()
         {
             Console.WriteLine("start the snake and ladder Game");
             int position = 0;
+            while (position < 100) // continue playing until position is less than 100
+            {
                 // generate a random number between 1 and 3 to determine the option
                 Random random = new Random();
                 int option = random.Next(1, 4);
@@ -30,13 +32,14 @@ namespace SnakeAndLadder
                         int snake = random.Next(1, 7); // generate a random number for the snake position
                         Console.WriteLine("Snake --> You move back by " + snake + " positions");
                         position -= snake; // update position - random number
-                        if (position < 0) 
+                        if (position < 0)
                         {
                             position = 0; // set position to 0.
                         }
                         break;
                 }
-            Console.WriteLine("You are now at position : " + position);
+                Console.WriteLine("You are now at position : " + position);
+            }
 
         }
     }
