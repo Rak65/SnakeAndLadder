@@ -8,42 +8,72 @@ namespace SnakeAndLadder
 {
     public class SnakeAndLadder
     {
-        public static void WinningPosition()
+        public const int CaseOfNoPlay = 0;
+        public const int CaseOfLadder = 1;
+        public const int CaseOfSnake = 2;
+        public const int MaxPosition = 100;
+        public static void ExactPosition100()
         {
-            Console.WriteLine("start the snake and ladder Game");
+            Console.WriteLine("Start the Snake and Ladder Game");
+            Console.WriteLine("Single Player at Start Position 0");
+            Console.WriteLine(" ");
             int position = 0;
-            while (position < 100) // continue playing until position is less than 100
+
+
+            while (position != MaxPosition)
             {
-                // generate a random number between 1 and 3 to determine the option
+
                 Random random = new Random();
-                int option = random.Next(1, 4);
+                int RollDice = random.Next(1, 6);
+                Console.WriteLine("Player 1 rolls the die and get: " + RollDice);
+                Random random1 = new Random();
+                int option = random1.Next(3);
+
+
 
                 switch (option)
                 {
-                    case 1: // No Play
-                        Console.WriteLine("No Play --> You stay in the same position");
-                        break;
-                    case 2: // Ladder
-                        int ladder = random.Next(1, 7); // generate a random number for the ladder position
-                        Console.WriteLine("Ladder --> You move ahead by " + ladder + " positions");
-                        position += ladder; // update position + random ladder
-                        break;
-                    case 3: // Snake
-                        int snake = random.Next(1, 7); // generate a random number for the snake position
-                        Console.WriteLine("Snake --> You move back by " + snake + " positions");
-                        position -= snake; // update position - random number
-                        if (position < 0)
-                        {
-                            position = 0; // set position to 0.
-                        }
-                        break;
-                }
-                Console.WriteLine("You are now at position : " + position);
-            }
-            Console.WriteLine("Congratulations! You reached the finish line!");
-            Console.WriteLine("Game over!");
-            Console.ReadKey();
+                    case CaseOfNoPlay:
 
+                        {
+                            Console.WriteLine("option NO PLAY selected " + position);
+                            Console.WriteLine("player stay in same position");
+
+                            break;
+                        }
+
+                    case CaseOfLadder:
+                        {
+                            Console.WriteLine("option LADDER selected " + (RollDice + position));
+                            Console.WriteLine("player move ahead" + RollDice);
+                            position = RollDice + position;
+                            break;
+                        }
+
+                    case CaseOfSnake:
+                        {
+                            Console.WriteLine("option SNAKE selected " + (RollDice + position));
+                            Console.WriteLine("Player moves behind by: " + RollDice);
+                            position = position - RollDice;
+                            break;
+                        }
+                }
+
+                if (position < 0)
+                {
+                    position = 0;
+                    Console.WriteLine("plyer1 have to restart the game from position:" + position);
+                }
+                if (position > 100)
+                {
+                    position = position - RollDice;
+                    Console.WriteLine("Your chance is skip stay on same position:" + position);
+                }
+                Console.WriteLine("current position of the player is:" + position);
+                Console.WriteLine(" ");
+
+            }
+            Console.WriteLine("!!!!*****!!!!!Player1 reach the winning position!!!!*****!!!!!");
         }
     }
         
